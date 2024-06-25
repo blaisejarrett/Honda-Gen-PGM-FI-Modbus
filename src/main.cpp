@@ -1,18 +1,28 @@
 #include <Arduino.h>
+#include <ModbusIP_ESP8266.h>
+#include <WiFiManager.h>
 
-// put function declarations here:
-int myFunction(int, int);
+ModbusIP mb;
+WiFiManager wm;
+
+const int TEST_HREG = 100;
+
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+
+  if (wm.autoConnect("PGMFI-Modbus", "modbus123"))
+    Serial.println("Connected to WiFi!");
+  else
+    Serial.println("Failed to connect.");
+
+  mb.server();
+  mb.addHreg(TEST_HREG, 0xABCD);
 }
+
 
 void loop() {
   // put your main code here, to run repeatedly:
+  mb.task();
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
