@@ -1,6 +1,8 @@
 # Honda-Gen-PGM-FI-Modbus
 Adapter to gain access to Honda Gen DLC data via Modbus TCP.
 
+**The current master branch of this project only offers up mock values and does not query the actual hardware interface. This project is still in development.**
+
 See my other related projects for more context.
 - [Honda-Gen-PGM-FI-Interface](https://github.com/blaisejarrett/Honda-Gen-PGM-FI-Interface)
 - [Honda-Gen-ESPHome](https://github.com/blaisejarrett/Honda-Gen-ESPHome)
